@@ -24,7 +24,7 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
 
 private slots:
-    void on_btnNovaViagem_clicked();
+    void criarNovaViagem(); // Antes era on_btnNovaViagem_clicked();
     void editarViagem(QUuid id);
     void excluirViagem(QUuid id);
     void on_listWidgetViagens_itemSelectionChanged();

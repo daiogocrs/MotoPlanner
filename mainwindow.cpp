@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // --- CONEXÕES DE SINAIS E SLOTS ---
     // Conecta a nova ação do menu ao slot que abre o diálogo de criação
-    connect(ui->actionNova_Viagem, &QAction::triggered, this, &MainWindow::on_btnNovaViagem_clicked);
+    connect(ui->actionNova_Viagem, &QAction::triggered, this, &MainWindow::criarNovaViagem);
 
     // Conecta o sinal de mudança de seleção da lista ao nosso slot
     connect(ui->listWidgetViagens, &QListWidget::itemSelectionChanged,
@@ -105,16 +105,16 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 // == SLOTS PARA AÇÕES PRINCIPAIS (CRIAR, EDITAR, EXCLUIR)
 // ============================================================================
 
-void MainWindow::on_btnNovaViagem_clicked()
+void MainWindow::criarNovaViagem() // Renomeie a função aqui
 {
-    // Abre o diálogo para criar uma nova viagem
+    // O corpo da função permanece o mesmo
     DialogoViagem dialogo(this);
     if (dialogo.exec() == QDialog::Accepted) {
         Viagem novaViagem = dialogo.getViagem();
         m_viagens.append(novaViagem);
 
-        salvarDados(); // Salva a lista atualizada
-        atualizarListaViagens(); // Atualiza a exibição na tela
+        salvarDados();
+        atualizarListaViagens();
     }
 }
 
