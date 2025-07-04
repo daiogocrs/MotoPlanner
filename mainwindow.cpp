@@ -22,6 +22,10 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
+// Inclusões para o filtro de eventos e a barra de menu
+#include <QMouseEvent>
+#include <QMenuBar>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,9 +34,26 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("MotoPlanner");
 
+    // --- LÓGICA DO MENU ---
+    // Atribui os menus criados na UI aos nossos ponteiros de membro
+    m_viagensMenu = ui->menuViagens;
+    m_sobreMenu = ui->menuSobre;
+
+    // Instala o filtro de eventos na barra de menu para capturar cliques
+    menuBar()->installEventFilter(this);
+
+    // Define a página inicial a ser exibida
+    ui->stackedWidget->setCurrentIndex(0);
+    // ----------------------
+
+    // --- CONEXÕES DE SINAIS E SLOTS ---
+    // Conecta a nova ação do menu ao slot que abre o diálogo de criação
+    connect(ui->actionNova_Viagem, &QAction::triggered, this, &MainWindow::on_btnNovaViagem_clicked);
+
     // Conecta o sinal de mudança de seleção da lista ao nosso slot
     connect(ui->listWidgetViagens, &QListWidget::itemSelectionChanged,
             this, &MainWindow::on_listWidgetViagens_itemSelectionChanged);
+    // ------------------------------------
 
     // Carrega as viagens salvas ao iniciar o programa
     carregarDados();
@@ -47,6 +68,36 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+// Implementação do Filtro de Eventos
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    // Verifica se o objeto é a barra de menu e o evento é um clique do mouse
+    if (obj == menuBar() && event->type() == QEvent::MouseButtonPress)
+    {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        QAction *action = menuBar()->actionAt(mouseEvent->pos()); // Pega a ação sob o cursor
+
+        if (action) // Se uma ação foi encontrada (um título de menu)
+        {
+            // Se a ação for o menu de VIAGENS
+            if (action->menu() == m_viagensMenu) {
+                ui->stackedWidget->setCurrentIndex(0);
+                // Retorna 'false' para que o evento continue e o menu possa abrir
+                return false;
+            }
+
+            // Se a ação for o menu SOBRE
+            if (action->menu() == m_sobreMenu) {
+                ui->stackedWidget->setCurrentIndex(1);
+                // Retorna 'true' para consumir o evento, já que não há sub-itens para mostrar
+                return true;
+            }
+        }
+    }
+    // Para todos os outros eventos, passa para a implementação padrão
+    return QMainWindow::eventFilter(obj, event);
 }
 
 
@@ -267,8 +318,6 @@ void MainWindow::carregarDados()
     for (const QJsonValue &valor : doc.array()) {
         QJsonObject obj = valor.toObject();
         Viagem v;
-        // Para simplicidade, um novo ID é gerado ao carregar.
-        // Para um sistema mais robusto, seria necessário um setId na classe Viagem.
         v.setNome(obj["nome"].toString());
         v.setDestino(obj["destino"].toString());
         v.setData(QDate::fromString(obj["data"].toString(), Qt::ISODate));
