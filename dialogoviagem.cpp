@@ -1,8 +1,8 @@
 #include "dialogoviagem.h"
 #include "ui_dialogoviagem.h"
 #include <QFileDialog>
+#include <QDir>
 
-// Construtor para uma nova viagem
 DialogoViagem::DialogoViagem(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogoViagem)
@@ -11,7 +11,6 @@ DialogoViagem::DialogoViagem(QWidget *parent) :
     ui->dateEdit->setDate(QDate::currentDate());
 }
 
-// Construtor para editar uma viagem existente
 DialogoViagem::DialogoViagem(const Viagem &viagemParaEditar, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogoViagem)
@@ -35,16 +34,14 @@ void DialogoViagem::preencherDados(const Viagem &viagem)
     ui->listWidgetFotos->addItems(viagem.getCaminhosFotos());
 }
 
-// Quando o usuário clicar em OK, atualizamos nosso objeto m_viagem
 Viagem DialogoViagem::getViagem() const
 {
-    Viagem v = m_viagem; // Começa com a viagem original (ou nova)
+    Viagem v = m_viagem;
     v.setNome(ui->txtNome->text());
     v.setDestino(ui->txtDestino->text());
     v.setData(ui->dateEdit->date());
     v.setDescricao(ui->txtDescricao->toPlainText());
 
-    // Pega os caminhos das fotos da lista
     QStringList caminhos;
     for(int i = 0; i < ui->listWidgetFotos->count(); ++i) {
         caminhos.append(ui->listWidgetFotos->item(i)->text());
@@ -54,7 +51,6 @@ Viagem DialogoViagem::getViagem() const
     return v;
 }
 
-// Slot para o botão de adicionar fotos
 void DialogoViagem::on_btnAdicionarFoto_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(
@@ -63,7 +59,6 @@ void DialogoViagem::on_btnAdicionarFoto_clicked()
         QDir::homePath(),
         "Imagens (*.png *.jpg *.jpeg)"
         );
-
     if (!files.isEmpty()) {
         ui->listWidgetFotos->addItems(files);
     }

@@ -13,20 +13,19 @@ class ItemViagemWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ItemViagemWidget(const Viagem& viagem, QWidget *parent = nullptr);
+    explicit ItemViagemWidget(const Viagem& viagem, bool isHistoryView = false, QWidget *parent = nullptr);
     ~ItemViagemWidget();
+    QUuid getIdViagem() const;
 
 signals:
     void editarRequisitado(QUuid id);
     void excluirRequisitado(QUuid id);
-
-private slots:
-    void on_btnEditar_clicked();
-    void on_btnExcluir_clicked();
+    void entrarRequisitado(QUuid id);
+    void finalizarRequisitado(QUuid id);
 
 private:
     Ui::ItemViagemWidget *ui;
     QUuid m_idViagem;
 };
 
-#endif // ITEMVIAGEMWIDGET_H
+#endif

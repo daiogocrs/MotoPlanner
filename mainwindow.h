@@ -2,10 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidget>
 #include "viagem.h"
-
-// Adicione esta inclusão para QMenu
 #include <QMenu>
+
+class ItemViagemWidget;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,35 +17,41 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    // Adicione esta seção protected
 protected:
+    // Declara que vamos sobrescrever a função de filtro de eventos
     bool eventFilter(QObject *obj, QEvent *event) override;
 
 private slots:
-    void criarNovaViagem(); // Antes era on_btnNovaViagem_clicked();
+    // Slots para as ações dos menus
+    void criarNovaViagem();
+    void mostrarPaginaViagens();
+    void mostrarPaginaHistorico();
+
+    // Slots para ações dos itens da lista
     void editarViagem(QUuid id);
     void excluirViagem(QUuid id);
-    void on_listWidgetViagens_itemSelectionChanged();
-    void on_btnFotoAnterior_clicked();
-    void on_btnFotoProxima_clicked();
+    void entrarNaViagem(QUuid id);
+    void finalizarViagem(QUuid id);
+
+    // Slot para seleção de item na lista de histórico
+    void on_listHistorico_itemSelectionChanged();
 
 private:
-    void atualizarListaViagens();
+    // Funções de atualização e persistência de dados
+    void atualizarListasDeViagens();
+    void atualizarListaHistorico();
     void salvarDados();
     void carregarDados();
-    void exibirDetalhesViagem(const Viagem& viagem);
-    void limparDetalhes();
-    void atualizarExibicaoFoto();
 
     Ui::MainWindow *ui;
     QList<Viagem> m_viagens;
-    int m_fotoAtualIndex;
 
-    // Adicione ponteiros para os menus
+    // Ponteiros para os menus, para uso no eventFilter
     QMenu *m_viagensMenu;
     QMenu *m_sobreMenu;
 };
-#endif // MAINWINDOW_H
+
+#endif

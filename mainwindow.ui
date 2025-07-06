@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>812</width>
-    <height>615</height>
+    <width>813</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,144 +24,60 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_11">
-     <widget class="QWidget" name="detalhesWidget" native="true">
-      <property name="geometry">
-       <rect>
-        <x>279</x>
-        <y>9</y>
-        <width>521</width>
-        <height>551</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="lblDetalheFotoDisplay">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>209</y>
-         <width>421</width>
-         <height>281</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Sem Imagem</string>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>510</y>
-         <width>195</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="btnFotoAnterior">
-          <property name="text">
-           <string>&lt; Anterior</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnFotoProxima">
-          <property name="text">
-           <string>Próxima &gt;</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>3</y>
-         <width>521</width>
-         <height>207</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="QLabel" name="lblDetalheNome">
-              <property name="font">
-               <font>
-                <pointsize>16</pointsize>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Selecione uma Viagem</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="lblDetalheDestino">
-              <property name="text">
-               <string>Destino:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="lblDetalheData">
-              <property name="text">
-               <string>Data:</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <widget class="QLabel" name="lblDetalheData_2">
-              <property name="text">
-               <string>Descrição:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QTextBrowser" name="browserDetalheDescricao"/>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QLabel" name="lblDetalheData_3">
-          <property name="text">
-           <string>Fotos:</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-     <widget class="QListWidget" name="listWidgetViagens">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>261</width>
+        <width>791</width>
         <height>551</height>
        </rect>
       </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Minhas Viagens</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="listMinhasViagens"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Viagens Disponíveis</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="listViagensDisponiveis"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="page_12">
@@ -179,6 +95,39 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QListWidget" name="listHistorico">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>11</y>
+        <width>291</width>
+        <height>551</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="DetalhesViagemWidget" name="detalhesHistoricoPage" native="true">
+      <property name="geometry">
+       <rect>
+        <x>309</x>
+        <y>9</y>
+        <width>491</width>
+        <height>551</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>2</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4"/>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -187,7 +136,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>812</width>
+     <width>813</width>
      <height>26</height>
     </rect>
    </property>
@@ -196,21 +145,42 @@
      <string>&amp;Viagens</string>
     </property>
     <addaction name="actionNova_Viagem"/>
+    <addaction name="separator"/>
+    <addaction name="actionVer_Viagens"/>
+    <addaction name="actionVer_Historico"/>
    </widget>
    <widget class="QMenu" name="menuSobre">
     <property name="title">
-     <string>Sobre</string>
+     <string>&amp;Sobre</string>
     </property>
    </widget>
    <addaction name="menuViagens"/>
    <addaction name="menuSobre"/>
   </widget>
+  <action name="actionVer_Viagens">
+   <property name="text">
+    <string>&amp;Ver Viagens Atuais</string>
+   </property>
+  </action>
+  <action name="actionVer_Historico">
+   <property name="text">
+    <string>&amp;Ver Histórico</string>
+   </property>
+  </action>
   <action name="actionNova_Viagem">
    <property name="text">
-    <string>&amp;Criar Nova Viagem</string>
+    <string>&amp;Nova Viagem</string>
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DetalhesViagemWidget</class>
+   <extends>QWidget</extends>
+   <header>detalhesviagemwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    detalhesviagemwidget.cpp \
     dialogoviagem.cpp \
     itemviagemwidget.cpp \
     main.cpp \
@@ -16,12 +17,15 @@ SOURCES += \
     viagem.cpp
 
 HEADERS += \
+    app_globals.h \
+    detalhesviagemwidget.h \
     dialogoviagem.h \
     itemviagemwidget.h \
     mainwindow.h \
     viagem.h
 
 FORMS += \
+    detalhesviagemwidget.ui \
     dialogoviagem.ui \
     itemviagemwidget.ui \
     mainwindow.ui

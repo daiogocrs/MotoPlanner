@@ -13,11 +13,11 @@ class DialogoViagem : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogoViagem(QWidget *parent = nullptr); // Construtor para nova viagem
-    explicit DialogoViagem(const Viagem& viagemParaEditar, QWidget *parent = nullptr); // Construtor para editar
+    explicit DialogoViagem(QWidget *parent = nullptr);
+    explicit DialogoViagem(const Viagem& viagemParaEditar, QWidget *parent = nullptr);
     ~DialogoViagem();
 
-    Viagem getViagem() const; // Retorna os dados preenchidos
+    Viagem getViagem() const;
 
 private slots:
     void on_btnAdicionarFoto_clicked();
@@ -29,4 +29,4 @@ private:
     Viagem m_viagem;
 };
 
-#endif // DIALOGOVIAGEM_H
+#endif
