@@ -17,14 +17,43 @@
         "data": "2025-07-25",
         "descricao": "Vamo estudar em outro lugar agr",
         "destino": "UFSC FLORIPA",
-        "finalizada": false,
+        "finalizada": true,
         "fotos": [
-            "C:/Users/Daiogo/OneDrive/Documentos/Imagens/Capturas de tela/Captura de tela 2025-04-21 115853.png"
+            "C:/Users/Daiogo/OneDrive/Documentos/Imagens/Capturas de tela/Captura de tela 2025-04-21 115853.png",
+            "C:/Users/Daiogo/OneDrive/Documentos/Imagens/Capturas de tela/Captura de tela 2025-04-22 093745.png"
         ],
         "id": "{732e4b45-8474-4b9c-bc3d-ab8e52d91329}",
         "nome": "Teste2",
         "participantes": [
+            "MeuUsuario",
+            "Diogo"
+        ]
+    },
+    {
+        "data": "2025-07-05",
+        "descricao": "asdasd",
+        "destino": "teste3",
+        "finalizada": true,
+        "fotos": [
+        ],
+        "id": "{2721500f-7e55-424e-909e-ca5644d618b2}",
+        "nome": "teste3",
+        "participantes": [
             "MeuUsuario"
+        ]
+    },
+    {
+        "data": "2025-07-05",
+        "descricao": "asdasd",
+        "destino": "teste4",
+        "finalizada": true,
+        "fotos": [
+        ],
+        "id": "{5a2d727d-ea8e-4132-b5db-1ce74fcdd191}",
+        "nome": "teste4",
+        "participantes": [
+            "MeuUsuario",
+            "Diogo"
         ]
     }
 ]

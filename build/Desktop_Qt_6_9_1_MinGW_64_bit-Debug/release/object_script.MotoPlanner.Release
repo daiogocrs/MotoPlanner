@@ -4,6 +4,7 @@ release/itemviagemwidget.o
 release/main.o
 release/mainwindow.o
 release/viagem.o
+release/qrc_Imagens.o
 release/moc_detalhesviagemwidget.o
 release/moc_dialogoviagem.o
 release/moc_itemviagemwidget.o

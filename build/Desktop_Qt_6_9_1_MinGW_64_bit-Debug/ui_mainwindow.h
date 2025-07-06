@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
@@ -44,7 +45,19 @@ public:
     QLabel *label_3;
     QListWidget *listViagensDisponiveis;
     QWidget *page_12;
+    QFrame *frame;
+    QLabel *lblIconeSobre;
     QLabel *label;
+    QLabel *lblCreditosSobre;
+    QLabel *label_4;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *lblLinkSobre;
+    QLabel *lblVersaoSobre;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *lblNomeAppSobre;
+    QLabel *lblDescricaoSobre;
     QWidget *page;
     QListWidget *listHistorico;
     DetalhesViagemWidget *detalhesHistoricoPage;
@@ -70,7 +83,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(0, -8, 801, 571));
+        stackedWidget->setGeometry(QRect(0, -8, 811, 561));
         page_11 = new QWidget();
         page_11->setObjectName("page_11");
         layoutWidget = new QWidget(page_11);
@@ -117,9 +130,68 @@ public:
         stackedWidget->addWidget(page_11);
         page_12 = new QWidget();
         page_12->setObjectName("page_12");
-        label = new QLabel(page_12);
+        frame = new QFrame(page_12);
+        frame->setObjectName("frame");
+        frame->setGeometry(QRect(10, 20, 791, 531));
+        frame->setFrameShape(QFrame::Shape::HLine);
+        frame->setFrameShadow(QFrame::Shadow::Sunken);
+        lblIconeSobre = new QLabel(frame);
+        lblIconeSobre->setObjectName("lblIconeSobre");
+        lblIconeSobre->setGeometry(QRect(20, 10, 231, 211));
+        lblIconeSobre->setMaximumSize(QSize(500, 500));
+        lblIconeSobre->setPixmap(QPixmap(QString::fromUtf8(":/imagens/MotoPlannerIcon.png")));
+        lblIconeSobre->setScaledContents(true);
+        label = new QLabel(frame);
         label->setObjectName("label");
-        label->setGeometry(QRect(350, 220, 63, 20));
+        label->setGeometry(QRect(270, 90, 461, 141));
+        label->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+        label->setWordWrap(true);
+        lblCreditosSobre = new QLabel(frame);
+        lblCreditosSobre->setObjectName("lblCreditosSobre");
+        lblCreditosSobre->setGeometry(QRect(10, 470, 267, 52));
+        label_4 = new QLabel(frame);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(10, 280, 621, 161));
+        label_4->setTextFormat(Qt::TextFormat::RichText);
+        widget = new QWidget(frame);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(510, 500, 269, 22));
+        horizontalLayout_3 = new QHBoxLayout(widget);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        lblLinkSobre = new QLabel(widget);
+        lblLinkSobre->setObjectName("lblLinkSobre");
+        lblLinkSobre->setTextFormat(Qt::TextFormat::RichText);
+        lblLinkSobre->setOpenExternalLinks(true);
+
+        horizontalLayout_3->addWidget(lblLinkSobre);
+
+        lblVersaoSobre = new QLabel(widget);
+        lblVersaoSobre->setObjectName("lblVersaoSobre");
+
+        horizontalLayout_3->addWidget(lblVersaoSobre);
+
+        widget1 = new QWidget(frame);
+        widget1->setObjectName("widget1");
+        widget1->setGeometry(QRect(270, 10, 211, 71));
+        verticalLayout_3 = new QVBoxLayout(widget1);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        lblNomeAppSobre = new QLabel(widget1);
+        lblNomeAppSobre->setObjectName("lblNomeAppSobre");
+        QFont font1;
+        font1.setPointSize(18);
+        font1.setBold(true);
+        lblNomeAppSobre->setFont(font1);
+
+        verticalLayout_3->addWidget(lblNomeAppSobre);
+
+        lblDescricaoSobre = new QLabel(widget1);
+        lblDescricaoSobre->setObjectName("lblDescricaoSobre");
+        lblDescricaoSobre->setWordWrap(true);
+
+        verticalLayout_3->addWidget(lblDescricaoSobre);
+
         stackedWidget->addWidget(page_12);
         page = new QWidget();
         page->setObjectName("page");
@@ -172,7 +244,20 @@ public:
         actionNova_Viagem->setText(QCoreApplication::translate("MainWindow", "&Nova Viagem", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Minhas Viagens", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Viagens Dispon\303\255veis", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "TESTE", nullptr));
+        lblIconeSobre->setText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"justify\">Aplica\303\247\303\243o de desktop desenvolvida como projeto final para a disciplina de Linguagem de Programa\303\247\303\243o II do curso de Engenharia da Computa\303\247\303\243o. O objetivo foi aplicar conceitos aprendidos em aula de C++ e do framework Qt para criar um sistema de gest\303\243o de viagens em grupo, com persist\303\252ncia de dados e uma interface de utilizador reativa.</p></body></html>", nullptr));
+        lblCreditosSobre->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p>Desenvolvido por: <span style=\" font-weight:700;\">Diogo Borges Corso <br/></span>Feito com C++ e o framework Qt 6.</p></body></html>", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "<b>Tecnologias Utilizadas:</b><br>\n"
+"<ul>\n"
+"<li>Linguagem: C++ (padr\303\243o C++17)</li>\n"
+"<li>Framework: Qt 6</li>\n"
+"<li>Interface Gr\303\241fica: Qt Designer</li>\n"
+"<li>Armazenamento de Dados: JSON</li>\n"
+"</ul>", nullptr));
+        lblLinkSobre->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><a href=\"https://github.com/daiogocrs/motoplanner\"><span style=\" text-decoration: underline; color:#1f9b5d;\">Acesse o Projeto no GitHub</span></a></p></body></html>", nullptr));
+        lblVersaoSobre->setText(QCoreApplication::translate("MainWindow", "Vers\303\243o 1.0.0", nullptr));
+        lblNomeAppSobre->setText(QCoreApplication::translate("MainWindow", "MotoPlanner", nullptr));
+        lblDescricaoSobre->setText(QCoreApplication::translate("MainWindow", "Vers\303\243o 1.0 - Projeto Final", nullptr));
         menuViagens->setTitle(QCoreApplication::translate("MainWindow", "&Viagens", nullptr));
         menuSobre->setTitle(QCoreApplication::translate("MainWindow", "&Sobre", nullptr));
     } // retranslateUi

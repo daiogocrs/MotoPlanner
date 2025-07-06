@@ -21,14 +21,9 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("MotoPlanner");
 
     // --- LÓGICA DO MENU ---
-    // Atribui os menus da UI aos nossos ponteiros de membro
     m_viagensMenu = ui->menuViagens;
     m_sobreMenu = ui->menuSobre;
-
-    // Instala o filtro de eventos na barra de menu para capturar cliques nos títulos
     menuBar()->installEventFilter(this);
-
-    // Conexões para as Ações DENTRO do menu "Viagens"
     connect(ui->actionVer_Viagens, &QAction::triggered, this, &MainWindow::mostrarPaginaViagens);
     connect(ui->actionVer_Historico, &QAction::triggered, this, &MainWindow::mostrarPaginaHistorico);
     connect(ui->actionNova_Viagem, &QAction::triggered, this, &MainWindow::criarNovaViagem);
@@ -37,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->listHistorico, &QListWidget::itemSelectionChanged, this, &MainWindow::on_listHistorico_itemSelectionChanged);
 
     carregarDados();
-    mostrarPaginaViagens(); // Inicia na página de viagens
+    mostrarPaginaViagens();
 }
 
 MainWindow::~MainWindow()
@@ -45,32 +40,22 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// IMPLEMENTAÇÃO DO FILTRO DE EVENTOS (CORRIGIDO)
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    // Verifica se o objeto é a barra de menu e o evento é um clique
     if (obj == menuBar() && event->type() == QEvent::MouseButtonPress)
     {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
         QAction *action = menuBar()->actionAt(mouseEvent->pos());
-
-        if (action) // Se um título de menu foi clicado
+        if (action)
         {
-            // Se o clique foi no título do menu "Sobre"
             if (action == m_sobreMenu->menuAction()) {
-                ui->stackedWidget->setCurrentIndex(1); // Muda para a página "Sobre"
-                return true; // Consome o evento para o menu não tentar abrir
+                ui->stackedWidget->setCurrentIndex(1);
+                return true;
             }
-            // Para qualquer outro clique de menu (como "Viagens"), o evento passa
         }
     }
-    // Para todos os outros eventos, usa a implementação padrão
     return QMainWindow::eventFilter(obj, event);
 }
-
-// ============================================================================
-// == SLOTS DE NAVEGAÇÃO E AÇÕES PRINCIPAIS
-// ============================================================================
 
 void MainWindow::mostrarPaginaViagens()
 {
@@ -152,10 +137,6 @@ void MainWindow::finalizarViagem(QUuid id)
     }
 }
 
-// ============================================================================
-// == SLOT DE SELEÇÃO DA LISTA DE HISTÓRICO
-// ============================================================================
-
 void MainWindow::on_listHistorico_itemSelectionChanged()
 {
     QList<QListWidgetItem*> selection = ui->listHistorico->selectedItems();
@@ -173,10 +154,6 @@ void MainWindow::on_listHistorico_itemSelectionChanged()
         }
     }
 }
-
-// ============================================================================
-// == FUNÇÕES AUXILIARES
-// ============================================================================
 
 void MainWindow::atualizarListasDeViagens()
 {
@@ -203,11 +180,17 @@ void MainWindow::atualizarListasDeViagens()
     }
 }
 
+// ############################################################################
+// ## FUNÇÃO CORRIGIDA
+// ############################################################################
 void MainWindow::atualizarListaHistorico()
 {
     ui->listHistorico->clear();
     for (const Viagem &viagem : m_viagens) {
-        if (viagem.isFinalizada()) {
+        // A CONDIÇÃO AGORA VERIFICA AMBAS AS COISAS:
+        // 1. A viagem está finalizada?
+        // 2. O utilizador atual participou nela?
+        if (viagem.isFinalizada() && viagem.getParticipantes().contains(currentUser)) {
             QListWidgetItem *listItem = new QListWidgetItem(ui->listHistorico);
             ItemViagemWidget *itemWidget = new ItemViagemWidget(viagem, true, this);
             listItem->setSizeHint(itemWidget->sizeHint());
@@ -216,10 +199,6 @@ void MainWindow::atualizarListaHistorico()
         }
     }
 }
-
-// ============================================================================
-// == FUNÇÕES PARA PERSISTÊNCIA DE DADOS (SALVAR/CARREGAR)
-// ============================================================================
 
 void MainWindow::salvarDados()
 {

@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>-8</y>
-      <width>801</width>
-      <height>571</height>
+      <width>811</width>
+      <height>561</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -81,18 +81,167 @@
      </widget>
     </widget>
     <widget class="QWidget" name="page_12">
-     <widget class="QLabel" name="label">
+     <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>220</y>
-        <width>63</width>
-        <height>20</height>
+        <x>10</x>
+        <y>20</y>
+        <width>791</width>
+        <height>531</height>
        </rect>
       </property>
-      <property name="text">
-       <string>TESTE</string>
+      <property name="frameShape">
+       <enum>QFrame::Shape::HLine</enum>
       </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Sunken</enum>
+      </property>
+      <widget class="QLabel" name="lblIconeSobre">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>231</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>500</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="Imagens.qrc">:/imagens/MotoPlannerIcon.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>90</y>
+         <width>461</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LayoutDirection::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Aplicação de desktop desenvolvida como projeto final para a disciplina de Linguagem de Programação II do curso de Engenharia da Computação. O objetivo foi aplicar conceitos aprendidos em aula de C++ e do framework Qt para criar um sistema de gestão de viagens em grupo, com persistência de dados e uma interface de utilizador reativa.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblCreditosSobre">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>480</y>
+         <width>267</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Desenvolvido por: &lt;span style=&quot; font-weight:700;&quot;&gt;Diogo Borges Corso &lt;br/&gt;&lt;/span&gt;Feito com C++ e o framework Qt 6.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>621</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;b&gt;Tecnologias Utilizadas:&lt;/b&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;Linguagem: C++ (padrão C++17)&lt;/li&gt;
+&lt;li&gt;Framework: Qt 6&lt;/li&gt;
+&lt;li&gt;Interface Gráfica: Qt Designer&lt;/li&gt;
+&lt;li&gt;Armazenamento de Dados: JSON&lt;/li&gt;
+&lt;/ul&gt;</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::TextFormat::RichText</enum>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>500</y>
+         <width>269</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="lblLinkSobre">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/daiogocrs/motoplanner&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#1f9b5d;&quot;&gt;Acesse o Projeto no GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::TextFormat::RichText</enum>
+          </property>
+          <property name="openExternalLinks">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblVersaoSobre">
+          <property name="text">
+           <string>Versão 1.0.0</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>10</y>
+         <width>211</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="lblNomeAppSobre">
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>MotoPlanner</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblDescricaoSobre">
+          <property name="text">
+           <string>Versão 1.0 - Projeto Final</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="page">
@@ -181,6 +330,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="Imagens.qrc"/>
+ </resources>
  <connections/>
 </ui>
