@@ -6,16 +6,6 @@
 
 A aplicação foi desenvolvida em **C++** utilizando o framework **Qt** e a IDE **Qt Creator**.
 
-## ✨ Funcionalidades Principais
-
-* **Cadastro de Motocicletas:** Gerencie múltiplas motos em um só lugar.
-* **Registro de Manutenções:** Mantenha um histórico detalhado de todas as manutenções realizadas (troca de óleo, revisão de freios, etc.).
-* **Controle de Despesas:** Registre gastos com combustível, peças e serviços.
-* **Lembretes:** Crie alertas para futuras manutenções e troca de peças.
-* **Relatórios:** Gere relatórios simples sobre gastos e manutenções.
-
-*(Lembre-se de ajustar a lista de funcionalidades para refletir o que seu aplicativo realmente faz!)*
-
 ## 🛠️ Tecnologias Utilizadas
 
 * **Linguagem:** C++
