@@ -43,8 +43,8 @@ template <> constexpr inline auto ItemViagemWidget::qt_create_metaobjectdata<qt_
         "",
         "id",
         "excluirRequisitado",
-        "on_btnEditar_clicked",
-        "on_btnExcluir_clicked"
+        "entrarRequisitado",
+        "finalizarRequisitado"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -56,10 +56,14 @@ template <> constexpr inline auto ItemViagemWidget::qt_create_metaobjectdata<qt_
         QtMocHelpers::SignalData<void(QUuid)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QUuid, 3 },
         }}),
-        // Slot 'on_btnEditar_clicked'
-        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnExcluir_clicked'
-        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Signal 'entrarRequisitado'
+        QtMocHelpers::SignalData<void(QUuid)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QUuid, 3 },
+        }}),
+        // Signal 'finalizarRequisitado'
+        QtMocHelpers::SignalData<void(QUuid)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QUuid, 3 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -85,8 +89,8 @@ void ItemViagemWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         switch (_id) {
         case 0: _t->editarRequisitado((*reinterpret_cast< std::add_pointer_t<QUuid>>(_a[1]))); break;
         case 1: _t->excluirRequisitado((*reinterpret_cast< std::add_pointer_t<QUuid>>(_a[1]))); break;
-        case 2: _t->on_btnEditar_clicked(); break;
-        case 3: _t->on_btnExcluir_clicked(); break;
+        case 2: _t->entrarRequisitado((*reinterpret_cast< std::add_pointer_t<QUuid>>(_a[1]))); break;
+        case 3: _t->finalizarRequisitado((*reinterpret_cast< std::add_pointer_t<QUuid>>(_a[1]))); break;
         default: ;
         }
     }
@@ -94,6 +98,10 @@ void ItemViagemWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         if (QtMocHelpers::indexOfMethod<void (ItemViagemWidget::*)(QUuid )>(_a, &ItemViagemWidget::editarRequisitado, 0))
             return;
         if (QtMocHelpers::indexOfMethod<void (ItemViagemWidget::*)(QUuid )>(_a, &ItemViagemWidget::excluirRequisitado, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (ItemViagemWidget::*)(QUuid )>(_a, &ItemViagemWidget::entrarRequisitado, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (ItemViagemWidget::*)(QUuid )>(_a, &ItemViagemWidget::finalizarRequisitado, 3))
             return;
     }
 }
@@ -139,5 +147,17 @@ void ItemViagemWidget::editarRequisitado(QUuid _t1)
 void ItemViagemWidget::excluirRequisitado(QUuid _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+
+// SIGNAL 2
+void ItemViagemWidget::entrarRequisitado(QUuid _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1);
+}
+
+// SIGNAL 3
+void ItemViagemWidget::finalizarRequisitado(QUuid _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
 }
 QT_WARNING_POP

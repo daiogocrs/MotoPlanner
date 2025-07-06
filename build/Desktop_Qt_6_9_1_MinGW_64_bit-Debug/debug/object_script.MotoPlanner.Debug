@@ -1,0 +1,10 @@
+debug/detalhesviagemwidget.o
+debug/dialogoviagem.o
+debug/itemviagemwidget.o
+debug/main.o
+debug/mainwindow.o
+debug/viagem.o
+debug/moc_detalhesviagemwidget.o
+debug/moc_dialogoviagem.o
+debug/moc_itemviagemwidget.o
+debug/moc_mainwindow.o

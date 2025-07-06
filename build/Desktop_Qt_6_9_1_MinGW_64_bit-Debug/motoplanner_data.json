@@ -1,0 +1,30 @@
+[
+    {
+        "data": "2025-07-15",
+        "descricao": "Vamo estudar rapazes",
+        "destino": "UFSC",
+        "finalizada": true,
+        "fotos": [
+            "C:/Users/Daiogo/OneDrive/Documentos/Imagens/Capturas de tela/Captura de tela 2025-06-11 200009.png"
+        ],
+        "id": "{74ecba42-6d5d-4edb-810e-5514badd6031}",
+        "nome": "Teste",
+        "participantes": [
+            "MeuUsuario"
+        ]
+    },
+    {
+        "data": "2025-07-25",
+        "descricao": "Vamo estudar em outro lugar agr",
+        "destino": "UFSC FLORIPA",
+        "finalizada": false,
+        "fotos": [
+            "C:/Users/Daiogo/OneDrive/Documentos/Imagens/Capturas de tela/Captura de tela 2025-04-21 115853.png"
+        ],
+        "id": "{732e4b45-8474-4b9c-bc3d-ab8e52d91329}",
+        "nome": "Teste2",
+        "participantes": [
+            "MeuUsuario"
+        ]
+    }
+]

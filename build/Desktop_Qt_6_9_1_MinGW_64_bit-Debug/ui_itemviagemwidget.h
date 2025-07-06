@@ -24,11 +24,14 @@ class Ui_ItemViagemWidget
 public:
     QVBoxLayout *verticalLayout;
     QLabel *lblNome;
+    QLabel *lblDono;
     QLabel *lblDestino;
     QLabel *lblData;
     QHBoxLayout *horizontalLayout;
+    QPushButton *btnEntrar;
     QPushButton *btnExcluir;
     QPushButton *btnEditar;
+    QPushButton *btnFinalizar;
 
     void setupUi(QWidget *ItemViagemWidget)
     {
@@ -46,6 +49,11 @@ public:
 
         verticalLayout->addWidget(lblNome);
 
+        lblDono = new QLabel(ItemViagemWidget);
+        lblDono->setObjectName("lblDono");
+
+        verticalLayout->addWidget(lblDono);
+
         lblDestino = new QLabel(ItemViagemWidget);
         lblDestino->setObjectName("lblDestino");
 
@@ -58,6 +66,11 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
+        btnEntrar = new QPushButton(ItemViagemWidget);
+        btnEntrar->setObjectName("btnEntrar");
+
+        horizontalLayout->addWidget(btnEntrar);
+
         btnExcluir = new QPushButton(ItemViagemWidget);
         btnExcluir->setObjectName("btnExcluir");
 
@@ -67,6 +80,11 @@ public:
         btnEditar->setObjectName("btnEditar");
 
         horizontalLayout->addWidget(btnEditar);
+
+        btnFinalizar = new QPushButton(ItemViagemWidget);
+        btnFinalizar->setObjectName("btnFinalizar");
+
+        horizontalLayout->addWidget(btnFinalizar);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -81,10 +99,13 @@ public:
     {
         ItemViagemWidget->setWindowTitle(QCoreApplication::translate("ItemViagemWidget", "Form", nullptr));
         lblNome->setText(QCoreApplication::translate("ItemViagemWidget", "Nome da Viagem", nullptr));
+        lblDono->setText(QCoreApplication::translate("ItemViagemWidget", "Dono:", nullptr));
         lblDestino->setText(QCoreApplication::translate("ItemViagemWidget", "Destino:", nullptr));
         lblData->setText(QCoreApplication::translate("ItemViagemWidget", "Data:", nullptr));
+        btnEntrar->setText(QCoreApplication::translate("ItemViagemWidget", "Entrar", nullptr));
         btnExcluir->setText(QCoreApplication::translate("ItemViagemWidget", "Excluir", nullptr));
         btnEditar->setText(QCoreApplication::translate("ItemViagemWidget", "Editar", nullptr));
+        btnFinalizar->setText(QCoreApplication::translate("ItemViagemWidget", "Finalizar", nullptr));
     } // retranslateUi
 
 };

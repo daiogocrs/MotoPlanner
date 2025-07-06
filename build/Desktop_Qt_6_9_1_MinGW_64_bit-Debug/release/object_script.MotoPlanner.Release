@@ -1,0 +1,10 @@
+release/detalhesviagemwidget.o
+release/dialogoviagem.o
+release/itemviagemwidget.o
+release/main.o
+release/mainwindow.o
+release/viagem.o
+release/moc_detalhesviagemwidget.o
+release/moc_dialogoviagem.o
+release/moc_itemviagemwidget.o
+release/moc_mainwindow.o
