@@ -55,5 +55,36 @@
             "MeuUsuario",
             "Diogo"
         ]
+    },
+    {
+        "data": "2025-07-08",
+        "descricao": "iadjsvioajsdfoajsdf",
+        "destino": "Serra do rio do rastro",
+        "finalizada": true,
+        "fotos": [
+            "C:/Users/Daiogo/fotos/foto2.jpeg"
+        ],
+        "id": "{040f03e8-4938-42fe-8814-b432fa793b00}",
+        "nome": "Vamo pra serra",
+        "participantes": [
+            "Diogo",
+            "AmigoDiogo"
+        ]
+    },
+    {
+        "data": "2025-02-08",
+        "descricao": "tanto fazjsdfioajiofj",
+        "destino": "tanto faz",
+        "finalizada": true,
+        "fotos": [
+            "C:/Users/Daiogo/fotos/foto1.jpeg",
+            "C:/Users/Daiogo/fotos/foto3.png"
+        ],
+        "id": "{279cf30b-b917-40e3-b748-20e8935c94e5}",
+        "nome": "adskfok",
+        "participantes": [
+            "AmigoDiogo",
+            "Diogo"
+        ]
     }
 ]
